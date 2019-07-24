@@ -68,9 +68,10 @@ def define_schema(field, name):
     if isinstance(field['type'], list):
         if field['type'][0] == "null":
             schema_mode = 'NULLABLE'
+            schema_type = field['type'][1]
         else:
             schema_mode = 'required'
-        schema_type = field['type'][1]
+            schema_type = field['type'][0]
     else:
         schema_type = field['type']
     if schema_type == "object":
